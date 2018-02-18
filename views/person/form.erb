@@ -1,4 +1,5 @@
 <form action="/person/<%= @person.id %>" method="POST">
+
   <div>
     <label>Avatar URL</label>
     <input type="text" name="avatar" placeholder="Enter an Image URL" value="<%= @person.avatar %>">
@@ -23,8 +24,9 @@
   <div>
     <input type="submit" value="Save Person">
   </div>
+
   <% if(@person.id) %>
-    <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="_method" value="PUT">
   <% end %>
 
 </form>

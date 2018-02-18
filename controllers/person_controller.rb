@@ -46,7 +46,7 @@ class PersonController < Sinatra::Base
     person.first_name = params[:first_name]
     person.last_name = params[:last_name]
     person.gender = params[:gender]
-    person.city_id = params[:city_id].to_i
+    person.city_id = params[:city_id]
 
     # save the post
     person.save
@@ -59,7 +59,7 @@ class PersonController < Sinatra::Base
     id = params[:id].to_i
 
     # load the object with the id
-    person = Person.find id
+    person = Person.find(id)
 
     # update the values
     person.avatar = params[:avatar]
@@ -72,6 +72,7 @@ class PersonController < Sinatra::Base
     person.save
 
     redirect '/person'
+
   end
 
   # delete
