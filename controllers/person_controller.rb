@@ -1,4 +1,4 @@
-class StaticController < Sinatra::Base
+class PersonController < Sinatra::Base
 
   # sets root as the parent-directory of the current file
   set :root, File.join(File.dirname(__FILE__), '..')
@@ -8,12 +8,6 @@ class StaticController < Sinatra::Base
 
   configure :development do
       register Sinatra::Reloader
-  end
-
-  get '/' do
-    @title = 'Welcome'
-
-    erb :'static/static'
   end
 
 end
