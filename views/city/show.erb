@@ -1,1 +1,16 @@
-<h1>This is city show</h1>
+<h1><%= @city.city_name %></h1>
+<p><%= @city.country_name %></p>
+<p><%= @city.currency %></p>
+<p><%= @city.currency_code %></p>
+
+<br>
+<br>
+
+<a href="/city/<%= @city.city_id %>/edit">edit</a>
+
+<br>
+
+<form action="/city/<%= @city.city_id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>

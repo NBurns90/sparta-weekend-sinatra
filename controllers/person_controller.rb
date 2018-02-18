@@ -20,7 +20,7 @@ class PersonController < Sinatra::Base
   end
 
   # new
-  get 'person/new' do
+  get '/person/new' do
 
     @person = Person.new
 
@@ -46,7 +46,7 @@ class PersonController < Sinatra::Base
     person.first_name = params[:first_name]
     person.last_name = params[:last_name]
     person.gender = params[:gender]
-    person.city_id = params[:city_id]
+    person.city_id = params[:city_id].to_i
 
     # save the post
     person.save
@@ -55,22 +55,39 @@ class PersonController < Sinatra::Base
   end
 
   # update
-  put '/:id' do
+  put '/person/:id' do
     id = params[:id].to_i
 
-    redirect '/'
+    # load the object with the id
+    person = Person.find id
+
+    # update the values
+    person.avatar = params[:avatar]
+    person.first_name = params[:first_name]
+    person.last_name = params[:last_name]
+    person.gender = params[:gender]
+    person.city_id = params[:city_id]
+
+    # save the post
+    person.save
+
+    redirect '/person'
   end
 
   # delete
-  delete '/:id' do
+  delete '/person/:id' do
     id = params[:id].to_i
 
-    redirect '/'
+    Person.destroy(id)
+
+    redirect '/person'
   end
 
   # edit
-  get '/:id/edit' do
+  get '/person/:id/edit' do
     id = params[:id].to_i
+
+    @person = Person.find(id)
 
     erb :'person/edit'
   end

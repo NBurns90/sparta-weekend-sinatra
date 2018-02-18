@@ -1,0 +1,27 @@
+<form action="/city/<%= @city.city_id %>" method="POST">
+  <div>
+    <label>City Name</label>
+    <input type="text" name="city_name" placeholder="Enter City Name" value="<%= @city.city_name %>">
+  </div>
+  <div>
+    <label>Country</label>
+    <input type="text" name="country_name" placeholder="Country" value="<%= @city.country_name %>">
+  </div>
+  <div>
+    <label>Currency</label>
+    <input type="text" name="currency" placeholder="Currency" value="<%= @city.currency %>">
+  </div>
+  <div>
+    <label>Currency_code</label>
+    <input type="text" name="currency_code" placeholder="Currency Code" value="<%= @city.currency_code %>">
+  </div>
+
+  <div>
+    <input type="submit" value="Save City">
+  </div>
+
+  <% if(@city.city_id) %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+
+</form>

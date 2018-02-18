@@ -2,3 +2,21 @@
 <p><%= @person.last_name %></p>
 <p><%= @person.gender %></p>
 <img src="<%= @person.avatar %>" alt="">
+
+<br>
+
+<h1>City Information</h1>
+<p><%= @city.city_name %></p>
+
+
+<br>
+<br>
+
+<a href="/person/<%= @person.id %>/edit">edit</a>
+
+<br>
+
+<form action="/person/<%= @person.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
