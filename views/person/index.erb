@@ -1,1 +1,8 @@
 <h1>This is person index</h1>
+
+<% @persons.each do |person| %>
+<div>
+  <h3><a href="/person/<%= person.id %>"><%= person.first_name %></a></h3>
+  <img src="<%= person.avatar %>" alt="">
+</div>
+<% end %>
