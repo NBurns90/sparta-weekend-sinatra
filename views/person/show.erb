@@ -1,0 +1,17 @@
+<h1><%= @person.first_name %></h1>
+<p><%= @person.last_name %></p>
+<p><%= @person.gender %></p>
+<img src="<%= @person.avatar %>" alt="">
+
+
+<br>
+<br>
+
+<a href="/person/<%= @person.id %>/edit">edit</a>
+
+<br>
+
+<form action="/person/<%= @person.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
